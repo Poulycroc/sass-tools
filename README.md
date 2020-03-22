@@ -4,7 +4,7 @@ Some tools for fast developing in sass
 # Usage
 
 ## You can import any files separatly 
-```sass
+```scss
 @import "mixins";
 @import "media-queries";
 @import "rfs";
@@ -14,6 +14,6 @@ Some tools for fast developing in sass
 #### or
 
 #### You can import in your main.scss simply with
-```sass
+```scss
 @import "tools/index";
 ```

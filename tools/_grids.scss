@@ -1,0 +1,192 @@
+$display_mobile: 600px;
+$display_small: 900px;
+$display_medium: 1200px;
+
+.tenant_header_illu,
+.container {
+  @include size(f, auto);
+  @include clearfix;
+  max-width: s(grid);
+  margin: 0 auto;
+  position: relative;
+
+  &:not(.vue-portal-target) {
+    @include max-screen(s(grid)) {
+      padding-left: 8pt;
+      padding-right: 8pt;
+    }
+  }
+}
+
+header {
+  &.smaller {
+    max-height: 600px;
+  }
+}
+
+.el-dialog__wrapper > .el-dialog {
+  max-width: s(grid);
+}
+
+.tenant_header_illu {
+  height: 100%;
+}
+
+.row {
+  @include size(f, auto);
+  @include clearfix;
+  &.centered {
+    margin: 0 auto;
+  }
+
+  $gridSize: 100% / 24;
+
+  @for $i from 1 to 24 {
+    .col_#{$i} {
+      width: $i * $gridSize;
+      padding: 0 s(padding);
+    }
+    div[class^='col_'] {
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.pad {
+  &_40 {
+    padding-top: 40px;
+    @include max-screen(600px) {
+      padding-top: 20px;
+    }
+  }
+  &_20 {
+    padding-top: 20px;
+    @include max-screen(600px) {
+      padding-top: 10px;
+    }
+  }
+  &_b {
+    &_40 {
+      padding-bottom: 40px;
+      @include max-screen(600px) {
+        padding-bottom: 20px;
+      }
+    }
+    &_20 {
+      padding-bottom: 20px;
+      @include max-screen(600px) {
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+.marg {
+  &_40 {
+    margin-top: 40px;
+    @include max-screen(600px) {
+      margin-top: 20px;
+    }
+  }
+  &_20 {
+    margin-top: 20px;
+    @include max-screen(600px) {
+      margin-top: 10px;
+    }
+  }
+  &_b {
+    &_40 {
+      margin-bottom: 40px;
+      @include max-screen(600px) {
+        margin-bottom: 20px;
+      }
+    }
+    &_20 {
+      margin-bottom: 20px;
+      @include max-screen(600px) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.push_type_ {
+  &landing {
+    margin-bottom: 200px !important;
+    @include max-screen(1000px) {
+      margin-bottom: 180px !important;
+    }
+    @include max-screen(800px) {
+      margin-bottom: 80px !important;
+    }
+    @include max-screen(600px) {
+      margin-bottom: 40px !important;
+    }
+  }
+}
+
+.not-display- {
+  &mobile {
+    @include max-screen($display_mobile) {
+      display: none !important;
+    }
+  }
+  &small {
+    @include max-screen($display_small) {
+      display: none !important;
+    }
+  }
+  &medium {
+    @include max-screen($display_medium) {
+      display: none !important;
+    }
+  }
+
+  &more-than- {
+    &mobile {
+      @include min-screen($display_mobile) {
+        display: none !important;
+      }
+    }
+    &small {
+      @include min-screen($display_small) {
+        display: none !important;
+      }
+    }
+    &medium {
+      @include min-screen($display_medium) {
+        display: none !important;
+      }
+    }
+  }
+}
+
+section {
+  &.body-type__ {
+    &aside {
+      $asideSize: 300px;
+      &._right {
+        aside {
+          float: right;
+        }
+        main {
+          float: left;
+        }
+      }
+
+      aside {
+        @include size(#{$asideSize}, auto);
+        float: left;
+      }
+      main {
+        @include size(calc(100% - #{$asideSize}), auto);
+        float: right;
+      }
+    }
+  }
+}

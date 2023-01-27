@@ -41,11 +41,11 @@ $rfs-rem-value: 16 !default;
 
 // Remove unit from $rfs-breakpoint for calculations.
 @if unit($rfs-breakpoint)=="px" {
-  $rfs-breakpoint: calc(scut-strip-unit($rfs-breakpoint) / ($rfs-breakpoint * 0 + 1));
+  $rfs-breakpoint: calc(scut-strip-unit($rfs-breakpoint) / (scut-strip-unit($rfs-breakpoint) * 0 + 1));
 }
 
 @else if unit($rfs-breakpoint)=="rem"or unit($rfs-breakpoint)=="em" {
-  $rfs-breakpoint: calc($rfs-breakpoint / ($rfs-breakpoint * 0 + (1 / $rfs-rem-value)));
+  $rfs-breakpoint: calc(scut-strip-unit$rfs-breakpoint / (scut-strip-unit$rfs-breakpoint * 0 + (1 / $rfs-rem-value)));
 }
 
 // Responsive font-size mixin.
@@ -118,7 +118,7 @@ $rfs-rem-value: 16 !default;
       }
 
       // Calculate the variable width between 0 and $rfs-breakpoint.
-      $variable-width: #{$fs-diff * calc(100 / $rfs-breakpoint)} #{$variable-unit}; // Set the calculated font-size.
+      $variable-width: #{$fs-diff * calc(100 / scut-strip-unit($rfs-breakpoint))} #{$variable-unit}; // Set the calculated font-size.
       $rfs-fluid: calc(#{$min-width} + #{$variable-width}) #{$rfs-suffix};
     }
 
@@ -132,7 +132,7 @@ $rfs-rem-value: 16 !default;
       $mq-value: null; // RFS breakpoint formatting.
 
       @if $rfs-breakpoint-unit==em or $rfs-breakpoint-unit==rem {
-        $mq-value: #{calc($rfs-breakpoint / $rfs-rem-value)}#{$rfs-breakpoint-unit};
+        $mq-value: #{calc(scut-strip-unit($rfs-breakpoint) / $rfs-rem-value)}#{$rfs-breakpoint-unit};
       }
 
       @else if $rfs-breakpoint-unit==px {

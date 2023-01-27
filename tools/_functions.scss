@@ -43,5 +43,5 @@
 }
 
 @function strip-units($number: 0) {
-  @return calc($number / ($number * 0 + 1));
+  @return calc($number / (scut-strip-unit($number) * 0 + 1));
 }

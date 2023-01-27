@@ -45,7 +45,7 @@ $rfs-rem-value: 16 !default;
 }
 
 @else if unit($rfs-breakpoint)=="rem"or unit($rfs-breakpoint)=="em" {
-  $rfs-breakpoint: calc(scut-strip-unit$rfs-breakpoint / (scut-strip-unit$rfs-breakpoint * 0 + (1 / $rfs-rem-value)));
+  $rfs-breakpoint: calc(scut-strip-unit($rfs-breakpoint) / (scut-strip-unit($rfs-breakpoint) * 0 + (1 / $rfs-rem-value)));
 }
 
 // Responsive font-size mixin.

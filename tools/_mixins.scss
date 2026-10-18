@@ -1,9 +1,12 @@
+@use "sass:list";
+@use "sass:math";
+
 //  Author: PoulyCroc <poulycroc.studio@gmail.com>
 //
 //  Licensed under a MIT License
 //
 @mixin linear-gradient($direction, $color-stops...) {
-  background: nth(nth($color-stops, 1), 1);
+  background: list.nth(list.nth($color-stops, 1), 1);
   background: -webkit-linear-gradient(legacy-direction($direction),
       $color-stops);
   background: linear-gradient($direction, $color-stops);
@@ -274,7 +277,7 @@
     @for $i from 1 through 2 {
       @keyframes #{$name}-anim-#{$i} {
         @for $i from 0 through $steps {
-          #{percentage($i * math.div(1, $steps))} {
+          #{math.percentage($i * math.div(1, $steps))} {
             clip: rect(random($height) + px,
                 $width + px,
                 random($height) + px,
